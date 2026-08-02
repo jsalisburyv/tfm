@@ -42,11 +42,7 @@ Thumbs.db
 Desktop.ini
 
 # Local research artifacts
-artifacts/model-weights/
 artifacts/explanation-runs/
-artifacts/generated-explanations/
-artifacts/selected-explanations/
-artifacts/plots
 
 # Model checkpoints and serialized objects
 *.pth
@@ -74,3 +70,13 @@ results*.json
 *.tgz
 *.rar
 *.7z
+
+# Git LFS managed research artifacts
+!artifacts/model-weights/
+!artifacts/model-weights/**
+!artifacts/generated-explanations/
+!artifacts/generated-explanations/**
+!artifacts/selected-explanations/
+!artifacts/selected-explanations/**
+!artifacts/plots/
+!artifacts/plots/**

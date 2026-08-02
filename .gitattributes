@@ -1,0 +1,4 @@
+artifacts/selected-explanations/** filter=lfs diff=lfs merge=lfs -text
+artifacts/plots/** filter=lfs diff=lfs merge=lfs -text
+artifacts/model-weights/** filter=lfs diff=lfs merge=lfs -text
+artifacts/generated-explanations/** filter=lfs diff=lfs merge=lfs -text
