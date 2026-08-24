@@ -1,0 +1,13 @@
+metric,category
+deletion_auc,input_perturbation
+insertion_auc,input_perturbation
+avg_drop,input_perturbation
+pointing_game,ground_truth_comparison
+iou50,ground_truth_comparison
+iou_value,ground_truth_comparison
+sensitivity_n,sensitivity
+roar,retraining
+bbox_energy_ratio,project_specific
+temporal_consistency,project_specific
+sparsity_80,project_specific
+runtime_seconds,computational_cost

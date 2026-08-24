@@ -1,0 +1,1 @@
+dataset,model,method,removal_fraction,baseline_accuracy,post_retraining_accuracy,accuracy_drop,random_baseline_accuracy,random_accuracy_drop,seed,config_path,checkpoint_path,status
