@@ -20,12 +20,18 @@ using the same perturbations. Partial smoke-test results do not enter rankings.
 Run:
 
 ```powershell
-# Small compatibility test
-python tools/run_sensitivity_n.py --datasets EtriActivity3D --limit-videos 1 --samples 8 --n 3
+# Small compatibility test (keep reduced parameters out of the final cache)
+python tools/run_sensitivity_n.py --datasets EtriActivity3D --limit-videos 1 --samples 8 --n 3 --output sensitivity_n_smoke.csv
 
 # Full configured evaluation (resumable)
 python tools/run_sensitivity_n.py
 ```
+
+For each video, inference is cached per compatible region partition. The four
+SLIC-based methods reuse one set of perturbation effects, while the five
+regular-grid methods reuse another. This changes only execution time: every
+method retains its own attribution sums, Sensitivity-N correlation, and sanity
+checks.
 
 ## ROAR
 
@@ -51,4 +57,3 @@ Deletion AUC, Insertion AUC, and Average Drop are input-perturbation metrics;
 Pointing Game and IoU are ground-truth-comparison metrics. Runtime, temporal
 consistency, sparsity, and bounding-box energy ratio remain explicitly outside
 the Kadir categories used here.
-

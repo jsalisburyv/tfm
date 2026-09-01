@@ -3,10 +3,15 @@
 This is intentionally separate from the analysis notebook because it performs
 model inference. Run a smoke test first, for example:
 
-    python tools/run_sensitivity_n.py --datasets EtriActivity3D --limit-videos 1 --samples 8 --n 3
+    python tools/run_sensitivity_n.py --datasets EtriActivity3D --limit-videos 1 --samples 8 --n 3 --output sensitivity_n_smoke.csv
 
 The full default is N=10, 100 sampled subsets, seed=777. Existing rows are
 resumed unless ``--overwrite`` is supplied.
+
+For each video, model predictions are shared by methods using the same region
+partition. The four SLIC methods form one group and the five regular-grid
+methods form another, reducing the full inference workload without changing
+any attribution sums, perturbations, correlations, or output rows.
 """
 
 from __future__ import annotations
@@ -241,6 +246,7 @@ def main():
                 predictions = [inference_recognizer(_model, unsort_frames(_indices, item)) for item in videos]
                 return np.asarray(predictions)
 
+            perturbation_sources = {}
             for method in args.methods:
                 key = (dataset, video_class, video_name, method)
                 if key in completed:
@@ -263,7 +269,11 @@ def main():
                     blur_mode="3d",
                     blur_radius=25,
                 )
-                score = evaluator.evaluate()
+                region_family = "slic" if method in SLIC_METHODS else "grid"
+                source = perturbation_sources.get(region_family)
+                score = evaluator.evaluate(perturbation_source=source)
+                if source is None:
+                    perturbation_sources[region_family] = evaluator
                 checks = evaluator.sanity_checks()
                 rows.append(
                     {
