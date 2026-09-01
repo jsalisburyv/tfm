@@ -1,5 +1,5 @@
 dataset,metric,rows,methods,ranking_ready
-EtriActivity3D,sensitivity_n,0,0,False
+EtriActivity3D,sensitivity_n,270,9,True
 EtriActivity3D,roar,0,0,False
-Kinetics400,sensitivity_n,0,0,False
+Kinetics400,sensitivity_n,270,9,True
 Kinetics400,roar,0,0,False

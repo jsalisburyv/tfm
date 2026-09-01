@@ -5,7 +5,7 @@ avg_drop,input_perturbation,540,9,True,Included; complete cases are determined p
 pointing_game,ground_truth_comparison,540,9,True,Included; complete cases are determined per scope below.
 iou50,ground_truth_comparison,540,9,True,Included; complete cases are determined per scope below.
 iou_value,ground_truth_comparison,540,9,True,Included; complete cases are determined per scope below.
-sensitivity_n,sensitivity,0,0,False,Unavailable: no per-video cache rows.
+sensitivity_n,sensitivity,540,9,True,Included; complete cases are determined per scope below.
 roar,retraining,0,0,False,"Excluded: results are dataset/method/fraction-level, not per-video repeated measures."
 bbox_energy_ratio,project_specific,540,9,True,Included; complete cases are determined per scope below.
 temporal_consistency,project_specific,540,9,True,Included; complete cases are determined per scope below.
